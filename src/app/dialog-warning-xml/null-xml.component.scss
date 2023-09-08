@@ -1,0 +1,21 @@
+.dialog-warning{
+  margin-bottom: 8pxs;
+  display: grid;
+  text-align: center;
+  place-content: center;
+}
+
+.icon-warning{
+  font-size: 100px;
+  height: 100px;
+  width: 100px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.warning-text{
+  display: grid;
+  text-align: center;
+  place-content: center;
+}

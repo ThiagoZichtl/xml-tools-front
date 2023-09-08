@@ -1,0 +1,70 @@
+<mat-card class="files-card">
+  <mat-card-content>
+    <div style="display: flex; justify-content: center; margin-bottom: 10px">
+      <div class="dropzone" appDrag (files)="filesDropped($event)">
+        <input #fileInput id="file-upload" type="file" (change)="addFiles($event)" multiple hidden accept=".xml">
+        <div style="display: grid; place-content: center;">
+          <img src="assets/image/upload-img.png" class="upload-img">
+        </div>
+        <h3>Arraste os arquivos para cá</h3>
+        <h3>ou</h3>
+        <button mat-raised-button color="primary" type="button" (click)="fileInput.click()">
+          Selecionar arquivo(s)
+        </button>
+      </div>
+    </div>
+
+  </mat-card-content>
+</mat-card>
+
+<div style="display: flex;">
+
+  <div id="import-card">
+    <mat-card class="import-card">
+
+      <mat-card-header class="card-header">
+        <mat-card-subtitle>Foram encontrados {{fileList.length}} arquivos.</mat-card-subtitle>
+      </mat-card-header>
+
+      <div style="padding-inline: 15px; margin-bottom: 10px;">
+        <mat-divider></mat-divider>
+      </div>
+
+      <mat-card-content>
+        <button mat-fab extended color="primary" style="max-width: 500px; font-size: 14px;" type="button"
+          (click)="uploadFiles(fileList)">
+          <mat-icon fontIcon="upload">upload</mat-icon>
+          Importar
+        </button>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+
+
+
+  <mat-card class="list-card">
+
+    <mat-card-header style="margin-bottom: 8px;">
+      <mat-card-subtitle>Lista de arquivos:</mat-card-subtitle>
+    </mat-card-header>
+
+    <div style="padding-inline: 15px; margin-bottom: 10px;">
+      <mat-divider></mat-divider>
+    </div>
+
+    <mat-card-content>
+      <div *ngFor="let name of fileList">
+        <div class="file-list">
+          <mat-card>
+            <mat-card-content>
+              <span class="file-upload__label">{{name.name}}</span>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+
+</div>
